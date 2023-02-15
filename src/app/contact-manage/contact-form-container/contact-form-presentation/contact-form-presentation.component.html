@@ -1,1 +1,80 @@
-<p>contact-form-presentation works!</p>
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="w-50">
+    <h1 class="text-uppercase text-center mb-3">Contact Form</h1>
+    <div class="d-flex justify-content-center align-items-center mb-4">
+      <label for="image-upload">
+        <div class="position-relative">
+          <div
+            class="profile-image w-120px h-120px d-flex justify-content-centern overflow-hidden rounded-circle"
+          >
+            <img
+              src="./../../../../assets/images/3135715.png"
+              alt="profile-icon"
+              class="img-fluid image object-fit-cover"
+            />
+
+            <div class="middle">
+              <div class="text text-nowrap text-dark">Upload Image</div>
+            </div>
+          </div>
+          <img
+            src="./../../../assets/images/plush-img.jpg"
+            class="position-absolute rounded-4 plush-image w-20px h-20px"
+          />
+        </div>
+      </label>
+      <input type="file" class="d-none" id="image-upload" />
+    </div>
+    <form>
+      <div class="form-group mb-2">
+        <label for="exampleFormControlInput1" class="fw-bold">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="Enter FullName"
+        />
+      </div>
+      <div class="form-group mb-2">
+        <label for="exampleFormControlInput1" class="fw-bold">Mobile No</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="Enter Mobile No"
+        />
+      </div>
+      <div class="form-group mb-2">
+        <label for="exampleFormControlInput1" class="fw-bold">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="Enter Email"
+        />
+      </div>
+      <div class="form-group mb-2">
+        <label for="exampleFormControlTextarea1 " class="fw-bold"
+          >address</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          placeholder="Address"
+        ></textarea>
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button type="button" class="btn btn-outline-warning ms-3 px-4 py-2">
+          Cencel
+        </button>
+        <button type="button" class="btn btn-outline-secondary ms-2 px-4 py-2">
+          Reset
+        </button>
+        <button type="button" class="btn btn-outline-primary ms-2 px-4 py-2">
+          save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
