@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ContactManageRoutingModule } from './contact-manage-routing.module';
 import { ContactManageComponent } from './contact-manage.component';
 import { ContactListContainerComponent } from './contact-list-container/contact-list-container.component';
@@ -9,8 +8,9 @@ import { ContactFormContainerComponent } from './contact-form-container/contact-
 import { ContactFormPresentationComponent } from './contact-form-container/contact-form-presentation/contact-form-presentation.component';
 import { ContactViewContainerComponent } from './contact-view-container/contact-view-container.component';
 import { ContactViewPresentationComponent } from './contact-view-container/contact-view-presentation/contact-view-presentation.component';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContactManageService } from './service/contact-manage.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     ContactManageComponent,
@@ -23,7 +23,10 @@ import { ContactViewPresentationComponent } from './contact-view-container/conta
   ],
   imports: [
     CommonModule,
-    ContactManageRoutingModule
-  ]
+    ContactManageRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers:[ContactManageService]
 })
 export class ContactManageModule { }
