@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Contact } from '../contact.model';
 import { ContactManageService } from '../service/contact-manage.service';
@@ -10,15 +11,16 @@ import { ContactManageService } from '../service/contact-manage.service';
 })
 export class ContactFormContainerComponent {
   
-  public addcontact$:Observable<Contact>
-  constructor(private contactHttpServices:ContactManageService){
-    this.addcontact$=new Observable();
+  constructor(private contactHttpServices: ContactManageService,
+  private router:Router) {
 
   }
   
+  //
   public createContact(contact:Contact){
-    this.contactHttpServices.addContact(contact).subscribe(Response=>{
-      console.log(Response);
+    this.contactHttpServices.addContact(contact).subscribe((Response: Contact) => {
+      this.router.navigateByUrl('contact-manage/contact-list')
+      
     })
   }
 }

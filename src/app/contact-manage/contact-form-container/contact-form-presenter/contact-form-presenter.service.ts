@@ -6,7 +6,7 @@ import { Contact } from '../../contact.model';
 @Injectable()
 export class ContactFormPresenterService {
   private  addContact:Subject<Contact>
-  private  addContact$:Observable<Contact>
+  public  addContact$:Observable<Contact>
   constructor(private fb:FormBuilder) { 
     this.addContact=new Subject();
     this.addContact$=new Observable();

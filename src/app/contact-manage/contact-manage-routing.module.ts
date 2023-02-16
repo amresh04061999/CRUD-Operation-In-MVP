@@ -16,6 +16,9 @@ const routes: Routes = [{
     },
     {
       path: 'contact-form', component: ContactFormContainerComponent
+    },
+    {
+      path: 'contact-list', component: ContactListContainerComponent
     }
   
   ]
