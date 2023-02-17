@@ -15,17 +15,20 @@ export class ContactFormPresentationComponent implements OnInit {
   public isSubmited: boolean;
   // output created addContact
   @Output() public addContact: EventEmitter<Contact>
+  @Output() public EditContact: EventEmitter<Contact>
   constructor(private contactPresenterServices:ContactFormPresenterService){
     this.isSubmited = false;
     // contact form
     this.contactForm = this.contactPresenterServices.BuildForm();
     this.addContact = new EventEmitter();
+    this.EditContact = new EventEmitter();
   }
   ngOnInit(): void {
 
     this.contactPresenterServices.addContact$.subscribe((res: Contact) => {
        this.addContact.emit(res)
     })
+
   }
 
   //  save contact  

@@ -24,15 +24,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6">
-      <div class="card">
+    <div class="col-lg-6"  *ngFor=" let list of contactlist">
+      <div class="card ">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center p-2">
-            <div class="w-25 h-25 bg-danger rounded-circle overflow-hidden">
+            <div class="w-120px h-120px bg-danger rounded-circle overflow-hidden">
               <img
-                src="./../../../../assets/images/3135715.png"
+                src="{{list.profileImage}}"
                 alt="profile-image"
-                class="w-100 h-auto"
+                class=" h-100 w-auto "
               />
             </div>
             <div>
@@ -40,27 +40,27 @@
                 <tbody>
                   <tr>
                     <th>Name</th>
-                    <td>amtresh prasad</td>
+                    <td>{{list.fullname}}</td>
                   </tr>
                   <tr>
                     <th>Mobile No</th>
-                    <td>555555555</td>
+                    <td>{{list.mobileno}}</td>
                   </tr>
                   <tr>
                     <th>Email</th>
-                    <td>Jacob@gmail.com</td>
+                    <td>{{list.email}}</td>
                   </tr>
                   <tr>
                     <th>address</th>
-                    <td>@fat</td>
+                    <td>{{list.address}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="d-flex flex-column">
               <button class="btn btn-warning bi bi-eye"></button>
-              <button class="btn btn-primary bi bi-pencil mt-2"></button>
-              <button class="btn btn-danger bi bi-trash mt-2"></button>
+              <button class="btn btn-primary bi bi-pencil mt-2" (click)="editContact(list.id)"></button>
+              <button class="btn btn-danger bi bi-trash mt-2" (click)="deleteContact(list.id)"></button>
             </div>
           </div>
         </div>

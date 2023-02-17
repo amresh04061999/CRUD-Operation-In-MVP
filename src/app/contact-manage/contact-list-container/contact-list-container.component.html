@@ -1,1 +1,2 @@
-<app-contact-list-presentation></app-contact-list-presentation>
+<app-contact-list-presentation
+[contactlist] ="conatctList$ | async" (delete)="deletecontact($event)"></app-contact-list-presentation>

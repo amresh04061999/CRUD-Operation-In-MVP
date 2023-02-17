@@ -1,9 +1,10 @@
 export class Contact {
-  private id: number;
-  private fullname: string;
-  private mobileno: number;
-  private email: string;
-  private address: string;
+  public id: number;
+  public fullname: string;
+  public mobileno: number;
+  public email: string;
+  public address: string;
+  public profileImage:any
   constructor(id: number, 
     fullname: string,
      mobileno:number,

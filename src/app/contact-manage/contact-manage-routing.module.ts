@@ -19,7 +19,11 @@ const routes: Routes = [{
     },
     {
       path: 'contact-list', component: ContactListContainerComponent
-    }
+    },
+    {
+      path: 'edit/:id',
+      component: ContactFormContainerComponent
+    },
   
   ]
 }];

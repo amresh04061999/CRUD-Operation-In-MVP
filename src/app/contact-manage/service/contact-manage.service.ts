@@ -7,7 +7,7 @@ import { Contact } from '../contact.model';
 @Injectable()
 export class ContactManageService {
   baseURL: any;
-  constructor(private contactHttp:HttpClient) { 
+  constructor(private _contactHttp:HttpClient) { 
     this.baseURL = environment.baseURL;
   }
 
@@ -16,12 +16,44 @@ export class ContactManageService {
    * @param contact
    * @returns array
    */
-  addContact(contact:Contact): Observable<Contact> {
+  public addContact(contact:Contact): Observable<Contact> {
     const URL: string = `${this.baseURL}contact`;
-    return this.contactHttp.post<Contact>(URL, contact);
+    return this._contactHttp.post<Contact>(URL, contact);
   }
-  getContact():Observable<Contact[]>{
+/**
+ *  get services
+ * @returns 
+ */
+  public getContact():Observable<Contact[]>{
     const URL: string = `${this.baseURL}contact`;
-    return this.contactHttp.get<Contact[]>(URL);
+    return this._contactHttp.get<Contact[]>(URL);
   }
+/**
+ * delete services
+ * @param contactId 
+ * @returns 
+ */
+  public delete(contactId:number):Observable<Contact[]>{
+    const URL: string = `${this.baseURL}contact/${contactId}`;
+    return this._contactHttp.delete<Contact[]>(URL)
+
+  }/**
+   * Update sevices
+   * @param contactID 
+   * @param contact 
+   * @returns 
+   */
+public update(contactID:number,contact:any):Observable<Contact>{
+  const URL: string = `${this.baseURL}contact/${contactID}`;
+  return this._contactHttp.put<Contact>(URL,contact)
+}
+/**
+ * 
+ * @param id 
+ * @returns 
+ */
+  public getContactById(id: number): Observable<Contact> {
+    const URL: string = `${this.baseURL}contact/${id}`;
+    return this._contactHttp.get<Contact>(URL)
+}
 }
