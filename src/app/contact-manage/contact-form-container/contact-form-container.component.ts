@@ -20,7 +20,6 @@ export class ContactFormContainerComponent {
   public createContact(contact:Contact){
     this.contactHttpServices.addContact(contact).subscribe((Response: Contact) => {
       this.router.navigateByUrl('contact-manage/contact-list')
-      
     })
   }
 }

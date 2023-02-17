@@ -20,4 +20,8 @@ export class ContactManageService {
     const URL: string = `${this.baseURL}contact`;
     return this.contactHttp.post<Contact>(URL, contact);
   }
+  getContact():Observable<Contact[]>{
+    const URL: string = `${this.baseURL}contact`;
+    return this.contactHttp.get<Contact[]>(URL);
+  }
 }

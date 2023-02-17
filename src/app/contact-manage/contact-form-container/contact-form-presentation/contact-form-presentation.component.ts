@@ -13,31 +13,39 @@ import { Contact } from '../../contact.model';
 export class ContactFormPresentationComponent implements OnInit {
   public contactForm:FormGroup;
   public isSubmited: boolean;
-  // output 
+  // output created addContact
   @Output() public addContact: EventEmitter<Contact>
-  
   constructor(private contactPresenterServices:ContactFormPresenterService){
-    this.isSubmited = false
+    this.isSubmited = false;
     // contact form
     this.contactForm = this.contactPresenterServices.BuildForm();
-    this.addContact = new EventEmitter()
+    this.addContact = new EventEmitter();
   }
   ngOnInit(): void {
+
     this.contactPresenterServices.addContact$.subscribe((res: Contact) => {
        this.addContact.emit(res)
     })
   }
 
-  //
+  //  save contact  
   public saveContact() { 
       this.contactPresenterServices.submitData(this.contactForm)
   }
-  // Select data employe form
+
+
+
+    public SelectImage(event:any){
+      this.contactPresenterServices.selectImage(event)
+
+      
+    }
+  // validation function
   get formValidator(): { [key: string]: AbstractControl } {
     return this.contactForm.controls;
   }
   
-  // Reset form
+  // Reset form function
   public formReset(){
           this.isSubmited=false
           this.contactForm.reset()
