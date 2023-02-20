@@ -2,16 +2,16 @@
   <div class="d-flex justify-content-between align-items-center mb-2">
     <div class="d-flex">
       <div class="mb-3">
+       
         <input
           type="email"
           class="form-control"
           id="exampleInputEmail1"
           placeholder="Search"
+            [(ngModel)]="Search"
         />
       </div>
-      <div class="button">
-        <button type="submit" class="btn btn-primary ms-3">Search</button>
-      </div>
+
     </div>
     <div class="button">
       <button
@@ -24,8 +24,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6"  *ngFor=" let list of contactlist">
-      <div class="card ">
+    <div class="col-lg-6"  *ngFor="let list of contactlist | filterData:Search">
+      <div class="card mt-3">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center p-2">
             <div class="w-120px h-120px bg-danger d-flex justify-content-center rounded-circle overflow-hidden">

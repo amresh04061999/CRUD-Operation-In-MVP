@@ -6,10 +6,12 @@
         <label for="image-upload">
           <div class="position-relative">
             <div class="profile-image w-120px h-120px d-flex justify-content-centern overflow-hidden rounded-circle">
+              <img src="./../../../../assets/images/3135715.png" 
+              class="img-fluid image object-fit-cover" *ngIf="!base64"/>
               <img [src]="base64" 
                 class="img-fluid image object-fit-cover" />
               <div class="middle">
-                <div class="text text-nowrap text-dark">Upload Image</div>
+                <div class="text text-nowrap text-dark" *ngIf="!base64">Upload Image</div>
               </div>
             </div>
             <img src="./../../../assets/images/plush-img.jpg"

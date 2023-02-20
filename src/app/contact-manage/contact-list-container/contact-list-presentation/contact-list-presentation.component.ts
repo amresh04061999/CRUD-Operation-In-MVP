@@ -26,10 +26,13 @@ export class ContactListPresentationComponent implements OnInit {
   private _contactlist!: Contact[];
   // Delete
   @Output() public delete: EventEmitter<number>;
+  public Search!:string
   constructor(private _ContactListPresenterService: ContactListPresenterService,
     private dataComunicatioServies: DataCommunicationService,
     private router: Router, private activateRouter: ActivatedRoute) {
     this.delete = new EventEmitter();
+    console.log(this.Search);
+    
   }
   ngOnInit(): void {
     this._ContactListPresenterService.delete$.subscribe((res: any) => {

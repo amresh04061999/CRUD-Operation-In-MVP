@@ -37,7 +37,7 @@ export class ContactFormPresentationComponent implements OnInit {
   @Output() public addContact: EventEmitter<Contact>
   // output created editContact
   @Output() public editContact: EventEmitter<Contact>
-  constructor(private _contactPresenterServices: ContactFormPresenterService,private changeDetection:ChangeDetectorRef) {
+  constructor(private _contactPresenterServices: ContactFormPresenterService,private _changeDetection:ChangeDetectorRef) {
     this.isSubmited = false;
     this.title = 'Add'
 
@@ -61,16 +61,12 @@ export class ContactFormPresentationComponent implements OnInit {
     })
     
   }
-
- 
   // select image logic
   public selectImage(event:any){
    this._contactPresenterServices.selectImage(event)
-
    this._contactPresenterServices.base64image$.subscribe((Response) => {
-    this.changeDetection.markForCheck()
+    this._changeDetection.markForCheck()
     this.base64 = Response
-    console.log(Response)
   })
   }
   //  save contact  

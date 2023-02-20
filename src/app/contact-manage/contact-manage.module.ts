@@ -8,10 +8,12 @@ import { ContactFormContainerComponent } from './contact-form-container/contact-
 import { ContactFormPresentationComponent } from './contact-form-container/contact-form-presentation/contact-form-presentation.component';
 import { ContactViewContainerComponent } from './contact-view-container/contact-view-container.component';
 import { ContactViewPresentationComponent } from './contact-view-container/contact-view-presentation/contact-view-presentation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactManageService } from './service/contact-manage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataCommunicationService } from './service/data-communication.service';
+import { SharedModule } from '../shared/shared.module';
+import { FilterDataPipe } from '../shared/pipe/filter-data.pipe';
 @NgModule({
   declarations: [
     ContactManageComponent,
@@ -26,7 +28,10 @@ import { DataCommunicationService } from './service/data-communication.service';
     CommonModule,
     ContactManageRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    FormsModule
+    
   ],
   providers:[ContactManageService,DataCommunicationService]
 })
