@@ -43,8 +43,8 @@ export class ContactManageService {
    * @param contact 
    * @returns 
    */
-public update(contactID:number,contact:any):Observable<Contact>{
-  const URL: string = `${this.baseURL}contact/${contactID}`;
+public update(contact:any,contactID:number):Observable<Contact>{
+  const URL: string =`${this.baseURL}contact/${contactID}`;
   return this._contactHttp.put<Contact>(URL,contact)
 }
 /**
