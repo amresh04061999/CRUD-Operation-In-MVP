@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactListPresenterService } from '../../contact-list-container/contact-list-presenter/contact-list-presenter.service';
-import { Contact } from '../../contact.model';
 import { DataCommunicationService } from '../../service/data-communication.service';
 
 @Component({
@@ -14,6 +12,7 @@ export class ContactViewPresentationComponent implements OnInit {
 
     }
   ngOnInit(): void {
+    
     this.dataCommunicationServies.viewcontact$.subscribe((res)=>{
       this.viewData= res
     })
