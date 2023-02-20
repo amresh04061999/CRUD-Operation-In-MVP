@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-center align-items-center h-100">
   <div class="w-50">
-    <h1 class="text-uppercase text-center mb-3">Contact Form</h1>
+    <h1 class="text-uppercase text-center mb-3">{{ title }} Contact Form</h1>
     <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
       <div class="d-flex justify-content-center align-items-center mb-4">
         <label for="image-upload">
           <div class="position-relative">
             <div class="profile-image w-120px h-120px d-flex justify-content-centern overflow-hidden rounded-circle">
-              <img src="./../../../../assets/images/3135715.png" alt="profile-icon"
+              <img [src]="base64" 
                 class="img-fluid image object-fit-cover" />
               <div class="middle">
                 <div class="text text-nowrap text-dark">Upload Image</div>
@@ -16,7 +16,7 @@
               class="position-absolute rounded-4 plush-image w-20px h-20px" />
           </div>
         </label>
-        <input type="file" class="d-none" id="image-upload" (change)="SelectImage($event)" />
+        <input type="file" class="d-none" id="image-upload" (change)="selectImage($event)" />
       </div>
       <div class="form-group mb-2">
         <label for="exampleFormControlInput1" class="fw-bold">Full Name</label>

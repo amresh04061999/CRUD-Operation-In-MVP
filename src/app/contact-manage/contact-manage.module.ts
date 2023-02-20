@@ -11,6 +11,7 @@ import { ContactViewPresentationComponent } from './contact-view-container/conta
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactManageService } from './service/contact-manage.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DataCommunicationService } from './service/data-communication.service';
 @NgModule({
   declarations: [
     ContactManageComponent,
@@ -27,6 +28,6 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers:[ContactManageService]
+  providers:[ContactManageService,DataCommunicationService]
 })
 export class ContactManageModule { }

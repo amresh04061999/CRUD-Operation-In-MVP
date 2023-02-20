@@ -7,7 +7,12 @@ export class ContactListPresenterService {
 // Service of delete
 private delete : Subject<Contact>;
 public delete$ : Observable<Contact>;
+private viewcontact:Subject<Contact>
+public  viewcontact$:Observable<Contact>
   constructor() { 
+    this.viewcontact= new Subject();
+    this.viewcontact$=new Observable()
+    this.viewcontact$=this.viewcontact.asObservable()
      // Service of delete
      this.delete = new Subject();
      this.delete$ = new Observable();

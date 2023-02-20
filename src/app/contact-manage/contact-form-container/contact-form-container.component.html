@@ -1,4 +1,5 @@
 <app-contact-form-presentation
+  [contactdata]="contactData$ | async"
   (addContact)="createContact($event)"
-  (editcontact)="editContact($event)"
+  (editContact)="editContact($event)"
 ></app-contact-form-presentation>

@@ -28,16 +28,16 @@
       <div class="card ">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center p-2">
-            <div class="w-120px h-120px bg-danger rounded-circle overflow-hidden">
+            <div class="w-120px h-120px bg-danger d-flex justify-content-center rounded-circle overflow-hidden">
               <img
                 src="{{list.profileImage}}"
                 alt="profile-image"
                 class=" h-100 w-auto "
               />
             </div>
-            <div>
-              <table class="table table-bordered">
-                <tbody>
+            <div class="w-75">
+              <table class="table table-bordered ">
+                <tbody >
                   <tr>
                     <th>Name</th>
                     <td>{{list.fullname}}</td>
@@ -58,7 +58,7 @@
               </table>
             </div>
             <div class="d-flex flex-column">
-              <button class="btn btn-warning bi bi-eye"></button>
+              <button class="btn btn-warning bi bi-eye" (click)="viewContact(list.id)"></button>
               <button class="btn btn-primary bi bi-pencil mt-2" (click)="editContact(list.id)"></button>
               <button class="btn btn-danger bi bi-trash mt-2" (click)="deleteContact(list.id)"></button>
             </div>

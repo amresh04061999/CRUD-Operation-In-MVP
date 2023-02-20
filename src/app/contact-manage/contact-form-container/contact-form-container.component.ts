@@ -29,8 +29,9 @@ export class ContactFormContainerComponent {
   }
 
   public editContact(contact:any){
-    this.contactHttpServices.update(contact,(this.id)).subscribe((res:Contact)=>{
+    this.contactHttpServices.update(contact,this.id).subscribe((res:any)=>{
       this.router.navigateByUrl('contact-manage/contact-list')
+     
     })
   }
 }
