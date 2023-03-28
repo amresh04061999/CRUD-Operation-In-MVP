@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { Contact } from '../../contact.model';
 import { DataCommunicationService } from '../../service/data-communication.service';
 import { ContactListPresenterService } from '../contact-list-presenter/contact-list-presenter.service';
@@ -9,55 +16,65 @@ import { ContactListPresenterService } from '../contact-list-presenter/contact-l
   templateUrl: './contact-list-presentation.component.html',
   styleUrls: ['./contact-list-presentation.component.scss'],
   viewProviders: [ContactListPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactListPresentationComponent implements OnInit {
-  // set data for list
-  @Input() set contactlist(Response: Contact[] | null) {
-    // console.log(Response);
-
+  // Setter
+  @Input() set contactList(Response: Contact[] | null) {
     if (Response) {
-      this._contactlist = Response
+      this._contactList = Response;
     }
   }
-  public get contactlist(): Contact[] {
-    return this._contactlist
+  // Getter
+  public get contactList(): Contact[] {
+    return this._contactList;
   }
-  private _contactlist!: Contact[];
-  // Delete
+
+  private _contactList!: Contact[];
+  // Output Create in Delete
   @Output() public delete: EventEmitter<number>;
-  public Search!:string
-  constructor(private _ContactListPresenterService: ContactListPresenterService,
-    private dataComunicatioServies: DataCommunicationService,
-    private router: Router, private activateRouter: ActivatedRoute) {
+  public Search!: string;
+  constructor(
+    private _ContactListPresenterService: ContactListPresenterService,
+    private _dataCommunicationService: DataCommunicationService,
+    private router: Router
+  ) {
     this.delete = new EventEmitter();
     console.log(this.Search);
-    
   }
   ngOnInit(): void {
+    /**
+     * delete Response pass on Container
+     */
     this._ContactListPresenterService.delete$.subscribe((res: any) => {
-      this.delete.emit(res)
-    })
+      this.delete.emit(res);
+    });
   }
-  // edite function Open form
+  /**
+   * Redirect edit Form
+   * @param id
+   */
   public editContact(id: number) {
-    this.router.navigateByUrl(`contact-manage/edit/${id}`)
+    this.router.navigateByUrl(`contact-manage/edit/${id}`);
   }
-  // delete contact
+  /**
+   * Delete Contact
+   * @param id
+   */
   public deleteContact(id: number) {
-    this._ContactListPresenterService.deleteContact(id)
-
+    this._ContactListPresenterService.deleteContact(id);
   }
-  // view contact
+  /**
+   * View contact Details
+   * @param item
+   */
   public viewContact(item: any) {
-    this.contactlist.find((items) => {
+    this.contactList.find((items: Contact) => {
       if (items.id == item) {
-       const viewcontact = items
-        this.dataComunicatioServies.viewcontact.next(viewcontact)
-
+        const viewContact = items;
+        this._dataCommunicationService.viewContact.next(viewContact);
       }
     });
-
-    this.router.navigateByUrl('/contact-manage/contact-view')
+    this.router.navigateByUrl('/contact-manage/contact-view');
   }
 }

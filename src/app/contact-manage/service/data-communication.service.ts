@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Contact } from '../contact.model';
 
 @Injectable()
 export class DataCommunicationService {
-  public viewcontact:BehaviorSubject<any>
-  public  viewcontact$:Observable<Contact>
+  public viewContact:BehaviorSubject<any>
+  public  viewContact$:Observable<Contact>
   constructor() { 
-    this.viewcontact= new BehaviorSubject('');
-    this.viewcontact$=new Observable()
-    this.viewcontact$=this.viewcontact.asObservable()
+    this.viewContact= new BehaviorSubject('');
+    this.viewContact$=new Observable()
+    this.viewContact$=this.viewContact.asObservable()
   }
 }

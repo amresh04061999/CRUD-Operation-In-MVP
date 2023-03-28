@@ -9,21 +9,30 @@ import { ContactManageService } from '../service/contact-manage.service';
   styleUrls: ['./contact-list-container.component.scss']
 })
 export class ContactListContainerComponent implements OnInit {
-
-   public conatctList$:Observable<Contact[]>
+   public contactList$:Observable<Contact[]>
   constructor(private _contactHttpServices:ContactManageService){
-      this.conatctList$=new Observable();
+      this.contactList$=new Observable();
   }
   ngOnInit(): void {
-   this.conatctList$=this._contactHttpServices.getContact()
+    /**
+     * Get contact List 
+     */
+   this.contactList$=this._contactHttpServices.getContact()
   }
-
-  // Delete conatact 
-  public deletecontact(contactId:any){
-   this._contactHttpServices.delete(contactId).subscribe((Response=>{
-    // Update contactlist 
-    this.conatctList$=this._contactHttpServices.getContact()
-   }))
+/**
+ * delete contact in json server using _contactHttpServices
+ * @param contactId 
+ */
+  public deleteContact(contactId:number){
+   this._contactHttpServices.delete(contactId).subscribe((Response:Contact[])=>{
+    if(Response){
+       /**
+     * update contactList
+     */
+      this.contactList$=this._contactHttpServices.getContact()
+    }
+   
+   })
   }
   
 }

@@ -8,12 +8,11 @@ import { DataCommunicationService } from '../../service/data-communication.servi
 })
 export class ContactViewPresentationComponent implements OnInit {
     public viewData!:any
-    constructor(private dataCommunicationServies:DataCommunicationService){
+    constructor(private _dataCommunicationService:DataCommunicationService){
 
     }
   ngOnInit(): void {
-    
-    this.dataCommunicationServies.viewcontact$.subscribe((res)=>{
+    this._dataCommunicationService.viewContact$.subscribe((res)=>{
       this.viewData= res
     })
   }

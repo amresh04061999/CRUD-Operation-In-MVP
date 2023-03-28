@@ -1,7 +1,9 @@
 <div class="d-flex justify-content-center align-items-center h-100">
   <div class="w-50">
     <h1 class="text-uppercase text-center mb-3">{{ title }} Contact Form</h1>
+    <!-- Form start -->
     <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
+      <!-- Upload image -->
       <div class="d-flex justify-content-center align-items-center mb-4">
         <label for="image-upload">
           <div class="position-relative">
@@ -33,6 +35,8 @@
           (change)="selectImage($event)"
         />
       </div>
+      <!--End Upload image -->
+      <!-- firstName -->
       <div class="form-group mb-2">
         <label for="exampleFormControlInput1" class="fw-bold">Full Name</label>
         <input
@@ -40,36 +44,38 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="Enter FullName"
-          formControlName="fullname"
+          formControlName="fullName"
           [ngClass]="{
             'is-invalid':
-              formValidator['fullname'].invalid &&
-              (isSubmited ||
-                formValidator['fullname'].touched ||
-                formValidator['fullname'].dirty),
+              formValidator['fullName'].invalid &&
+              (isSubmitted ||
+                formValidator['fullName'].touched ||
+                formValidator['fullName'].dirty),
             'is-valid':
-              formValidator['fullname'].valid &&
-              (isSubmited ||
-                formValidator['fullname'].touched ||
-                formValidator['fullname'].dirty)
+              formValidator['fullName'].valid &&
+              (isSubmitted ||
+                formValidator['fullName'].touched ||
+                formValidator['fullName'].dirty)
           }"
         />
       </div>
+      <!-- FirstName Validation -->
       <div
         *ngIf="
-          formValidator['fullname'].invalid &&
-          (isSubmited ||
-            formValidator['fullname'].touched ||
-            formValidator['fullname'].dirty)
+          formValidator['fullName'].invalid &&
+          (isSubmitted ||
+            formValidator['fullName'].touched ||
+            formValidator['fullName'].dirty)
         "
       >
         <div
-          *ngIf="formValidator['fullname'].errors?.['required']"
+          *ngIf="formValidator['fullName'].errors?.['required']"
           class="text-danger"
         >
           FullName Is Required
         </div>
       </div>
+      <!-- lastName -->
       <div class="form-group mb-2">
         <label for="exampleFormControlInput1" class="fw-bold">Mobile No</label>
         <input
@@ -77,36 +83,38 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="Enter Mobile No"
-          formControlName="mobileno"
+          formControlName="mobilNumber"
           [ngClass]="{
             'is-invalid':
-              formValidator['mobileno'].invalid &&
-              (isSubmited ||
-                formValidator['mobileno'].touched ||
-                formValidator['mobileno'].dirty),
+              formValidator['mobilNumber'].invalid &&
+              (isSubmitted ||
+                formValidator['mobilNumber'].touched ||
+                formValidator['mobilNumber'].dirty),
             'is-valid':
-              formValidator['mobileno'].valid &&
-              (isSubmited ||
-                formValidator['mobileno'].touched ||
-                formValidator['mobileno'].dirty)
+              formValidator['mobilNumber'].valid &&
+              (isSubmitted ||
+                formValidator['mobilNumber'].touched ||
+                formValidator['mobilNumber'].dirty)
           }"
         />
       </div>
+      <!-- lastName Validation -->
       <div
         *ngIf="
-          formValidator['mobileno'].invalid &&
-          (isSubmited ||
-            formValidator['mobileno'].touched ||
-            formValidator['mobileno'].dirty)
+          formValidator['mobilNumber'].invalid &&
+          (isSubmitted ||
+            formValidator['mobilNumber'].touched ||
+            formValidator['mobilNumber'].dirty)
         "
       >
         <div
-          *ngIf="formValidator['mobileno'].errors?.['required']"
+          *ngIf="formValidator['mobilNumber'].errors?.['required']"
           class="text-danger"
         >
           Mobile No Is Required
         </div>
       </div>
+      <!-- email -->
       <div class="form-group mb-2">
         <label for="exampleFormControlInput1" class="fw-bold">Email</label>
         <input
@@ -118,21 +126,22 @@
           [ngClass]="{
             'is-invalid':
               formValidator['email'].invalid &&
-              (isSubmited ||
+              (isSubmitted ||
                 formValidator['email'].touched ||
                 formValidator['email'].dirty),
             'is-valid':
               formValidator['email'].valid &&
-              (isSubmited ||
+              (isSubmitted ||
                 formValidator['email'].touched ||
                 formValidator['email'].dirty)
           }"
         />
       </div>
+      <!-- email Validation -->
       <div
         *ngIf="
           formValidator['email'].invalid &&
-          (isSubmited ||
+          (isSubmitted ||
             formValidator['email'].touched ||
             formValidator['email'].dirty)
         "
@@ -144,6 +153,7 @@
           Email Is Required
         </div>
       </div>
+      <!-- address -->
       <div class="form-group mb-2">
         <label for="exampleFormControlTextarea1 " class="fw-bold"
           >address</label
@@ -157,21 +167,22 @@
           [ngClass]="{
             'is-invalid':
               formValidator['address'].invalid &&
-              (isSubmited ||
+              (isSubmitted ||
                 formValidator['address'].touched ||
                 formValidator['address'].dirty),
             'is-valid':
               formValidator['address'].valid &&
-              (isSubmited ||
+              (isSubmitted ||
                 formValidator['address'].touched ||
                 formValidator['address'].dirty)
           }"
         ></textarea>
       </div>
+      <!-- address validation -->
       <div
         *ngIf="
           formValidator['address'].invalid &&
-          (isSubmited ||
+          (isSubmitted ||
             formValidator['address'].touched ||
             formValidator['address'].dirty)
         "
@@ -183,10 +194,15 @@
           Address Is Required
         </div>
       </div>
+      <!-- Button -->
       <div class="d-flex justify-content-end mt-3">
-        <!-- <button type="button" class="btn btn-outline-warning ms-3 px-4 py-2">
-          Cencel
-        </button> -->
+        <button
+          type="button"
+          class="btn btn-outline-secondary ms-2 px-4 py-2"
+          [routerLink]="['/']"
+        >
+          Cancel
+        </button>
         <button
           type="button"
           class="btn btn-outline-secondary ms-2 px-4 py-2"
@@ -199,5 +215,6 @@
         </button>
       </div>
     </form>
+    <!-- Form End  -->
   </div>
 </div>

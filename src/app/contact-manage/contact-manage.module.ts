@@ -13,7 +13,6 @@ import { ContactManageService } from './service/contact-manage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DataCommunicationService } from './service/data-communication.service';
 import { SharedModule } from '../shared/shared.module';
-import { FilterDataPipe } from '../shared/pipe/filter-data.pipe';
 @NgModule({
   declarations: [
     ContactManageComponent,

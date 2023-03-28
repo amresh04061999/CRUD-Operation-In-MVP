@@ -1,17 +1,16 @@
+<!-- main -->
 <main>
   <div class="d-flex justify-content-between align-items-center mb-2">
     <div class="d-flex">
       <div class="mb-3">
-       
         <input
           type="email"
           class="form-control"
           id="exampleInputEmail1"
           placeholder="Search"
-            [(ngModel)]="Search"
+          [(ngModel)]="Search"
         />
       </div>
-
     </div>
     <div class="button">
       <button
@@ -24,48 +23,62 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6"  *ngFor="let list of contactlist | filterData:Search">
+    <div
+      class="col-lg-6"
+      *ngFor="let list of contactList | filterData : Search"
+    >
       <div class="card mt-3">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center p-2">
-            <div class="w-120px h-120px bg-danger d-flex justify-content-center rounded-circle overflow-hidden">
+            <div
+              class="w-120px h-120px bg-danger d-flex justify-content-center rounded-circle overflow-hidden"
+            >
               <img
-                src="{{list.profileImage}}"
+                src="{{ list.profileImage }}"
                 alt="profile-image"
-                class=" h-100 w-auto "
+                class="h-100 w-auto"
               />
             </div>
             <div class="w-75">
-              <table class="table table-bordered ">
-                <tbody >
+              <table class="table table-bordered">
+                <tbody>
                   <tr>
                     <th>Name</th>
-                    <td>{{list.fullname}}</td>
+                    <td>{{ list.fullName }}</td>
                   </tr>
                   <tr>
                     <th>Mobile No</th>
-                    <td>{{list.mobileno}}</td>
+                    <td>{{ list.mobilNumber }}</td>
                   </tr>
                   <tr>
                     <th>Email</th>
-                    <td>{{list.email}}</td>
+                    <td>{{ list.email }}</td>
                   </tr>
                   <tr>
                     <th>address</th>
-                    <td>{{list.address}}</td>
+                    <td>{{ list.address }}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="d-flex flex-column">
-              <button class="btn btn-warning bi bi-eye" (click)="viewContact(list.id)"></button>
-              <button class="btn btn-primary bi bi-pencil mt-2" (click)="editContact(list.id)"></button>
-              <button class="btn btn-danger bi bi-trash mt-2" (click)="deleteContact(list.id)"></button>
+              <button
+                class="btn btn-warning bi bi-eye"
+                (click)="viewContact(list.id)"
+              ></button>
+              <button
+                class="btn btn-primary bi bi-pencil mt-2"
+                (click)="editContact(list.id)"
+              ></button>
+              <button
+                class="btn btn-danger bi bi-trash mt-2"
+                (click)="deleteContact(list.id)"
+              ></button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
- 
 </main>
+<!--End main -->

@@ -4,24 +4,23 @@ import { Contact } from '../../contact.model';
 
 @Injectable()
 export class ContactListPresenterService {
-// Service of delete
-private delete : Subject<Contact>;
-public delete$ : Observable<Contact>;
-private viewcontact:Subject<Contact>
-public  viewcontact$:Observable<Contact>
-  constructor() { 
-    this.viewcontact= new Subject();
-    this.viewcontact$=new Observable()
-    this.viewcontact$=this.viewcontact.asObservable()
-     // Service of delete
-     this.delete = new Subject();
-     this.delete$ = new Observable();
-     this.delete$ = this.delete.asObservable();
- 
+  private delete: Subject<number>;
+  public delete$: Observable<number>;
+  private viewContact: Subject<Contact>;
+  public viewContact$: Observable<Contact>;
+  constructor() {
+    this.viewContact = new Subject();
+    this.viewContact$ = new Observable();
+    this.viewContact$ = this.viewContact.asObservable();
+    this.delete = new Subject();
+    this.delete$ = new Observable();
+    this.delete$ = this.delete.asObservable();
   }
-
-  // delete contact next observable in pregentation
-  public deleteContact(id:any){
-   this.delete.next(id)
+  /**
+   * Delete Contact
+   * @param id
+   */
+  public deleteContact(id: number) {
+    this.delete.next(id);
   }
 }

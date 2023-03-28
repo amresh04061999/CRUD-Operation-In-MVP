@@ -1,21 +1,24 @@
+<!-- back button -->
 <button class="btn btn-primary" routerLink="">Back</button>
+<!-- table show contact Details -->
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Mobile No</th>
-        <th scope="col">Email </th>
-        <th scope="col">Address </th>
-        <th scope="col">Profile Image </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{viewData.fullname}}</td>
-        <td>{{viewData.mobileno}}</td>
-        <td>{{viewData.email}}</td>
-        <td>{{viewData.address}}</td>
-        <td><img src="{{viewData.profileImage}}" alt="profile image"></td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile No</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Profile Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ viewData.fullName }}</td>
+      <td>{{ viewData.mobilNumber }}</td>
+      <td>{{ viewData.email }}</td>
+      <td>{{ viewData.address }}</td>
+      <td><img src="{{ viewData.profileImage }}" alt="profile image" /></td>
+    </tr>
+  </tbody>
+</table>
+<!-- End Table show contact Details -->

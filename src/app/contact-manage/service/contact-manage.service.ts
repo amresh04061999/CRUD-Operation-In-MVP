@@ -6,54 +6,49 @@ import { Contact } from '../contact.model';
 
 @Injectable()
 export class ContactManageService {
-  baseURL: any;
+  baseURL: String;
   constructor(private _contactHttp:HttpClient) { 
     this.baseURL = environment.baseURL;
   }
 
   /**
-   *  add employee service
+   * add Contact in json-server
    * @param contact
-   * @returns array
+   * @returns 
    */
   public addContact(contact:Contact): Observable<Contact> {
-    const URL: string = `${this.baseURL}contact`;
-    return this._contactHttp.post<Contact>(URL, contact);
+    return this._contactHttp.post<Contact>(`${this.baseURL}contact`, contact);
   }
 /**
- *  get services
+ *  get Contact details in json-server
  * @returns 
  */
   public getContact():Observable<Contact[]>{
-    const URL: string = `${this.baseURL}contact`;
-    return this._contactHttp.get<Contact[]>(URL);
+    return this._contactHttp.get<Contact[]>(`${this.baseURL}contact`);
   }
 /**
- * delete services
+ * delete Contact Details in json-server
  * @param contactId 
  * @returns 
  */
   public delete(contactId:number):Observable<Contact[]>{
-    const URL: string = `${this.baseURL}contact/${contactId}`;
-    return this._contactHttp.delete<Contact[]>(URL)
+    return this._contactHttp.delete<Contact[]>(`${this.baseURL}contact/${contactId}`)
 
   }/**
-   * Update sevices
+   * contact details Update in json-server
    * @param contactID 
    * @param contact 
    * @returns 
    */
 public update(contact:any,contactID:number):Observable<Contact>{
-  const URL: string =`${this.baseURL}contact/${contactID}`;
-  return this._contactHttp.put<Contact>(URL,contact)
+  return this._contactHttp.put<Contact>(`${this.baseURL}contact/${contactID}`,contact)
 }
 /**
- * 
+ * get-Employee id in json-server
  * @param id 
  * @returns 
  */
   public getContactById(id: number): Observable<Contact> {
-    const URL: string = `${this.baseURL}contact/${id}`;
-    return this._contactHttp.get<Contact>(URL)
+    return this._contactHttp.get<Contact>(`${this.baseURL}contact/${id}`)
 }
 }

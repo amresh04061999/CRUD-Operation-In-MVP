@@ -1,19 +1,19 @@
 export class Contact {
   public id: number;
-  public fullname: string;
-  public mobileno: number;
+  public fullName: string;
+  public mobilNumber: number;
   public email: string;
   public address: string;
   public profileImage:any
   constructor(id: number, 
-    fullname: string,
-     mobileno:number,
+    fullName: string,
+    mobilNumber:number,
       email: string,
       address:string
       ) {
     this.id = id;
-    this.fullname = fullname;
-    this.mobileno = mobileno;
+    this.fullName = fullName;
+    this.mobilNumber = mobilNumber;
     this.email = email;
     this.address = address;
   }
