@@ -7,8 +7,10 @@ import { Contact } from '../contact.model';
 @Injectable()
 export class ContactManageService {
   baseURL: String;
+  baseURL1: String;
   constructor(private _contactHttp:HttpClient) { 
     this.baseURL = environment.baseURL;
+    this.baseURL1 = environment.baseURL1;
   }
 
   /**
@@ -25,6 +27,13 @@ export class ContactManageService {
  */
   public getContact():Observable<Contact[]>{
     return this._contactHttp.get<Contact[]>(`${this.baseURL}contact`);
+  }
+  /**
+ *  get Contact details in json-server
+ * @returns 
+ */
+  public getUser():Observable<any>{
+    return this._contactHttp.get<any>('https://dummyjson.com/users');
   }
 /**
  * delete Contact Details in json-server

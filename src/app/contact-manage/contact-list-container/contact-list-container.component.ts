@@ -10,6 +10,7 @@ import { ContactManageService } from '../service/contact-manage.service';
 })
 export class ContactListContainerComponent implements OnInit {
    public contactList$:Observable<Contact[]>
+   public user :any
   constructor(private _contactHttpServices:ContactManageService){
       this.contactList$=new Observable();
   }
@@ -17,9 +18,19 @@ export class ContactListContainerComponent implements OnInit {
     /**
      * Get contact List 
      */
-   this.contactList$=this._contactHttpServices.getContact()
+  //  this.contactList$=this._contactHttpServices.getContact();
+   
+   this.getUser()
+  
   }
-/**
+
+  public getUser(){
+           this._contactHttpServices.getUser().subscribe(res =>{
+            console.log(res)
+            localStorage.setItem('users',JSON.stringify(res))
+           })
+  }
+  /**
  * delete contact in json server using _contactHttpServices
  * @param contactId 
  */

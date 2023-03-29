@@ -68,13 +68,8 @@ export class ContactListPresentationComponent implements OnInit {
    * View contact Details
    * @param item
    */
-  public viewContact(item: any) {
-    this.contactList.find((items: Contact) => {
-      if (items.id == item) {
-        const viewContact = items;
-        this._dataCommunicationService.viewContact.next(viewContact);
-      }
-    });
+  public viewContact(list: Contact) {
+    this._ContactListPresenterService.viewContactDetails(list,this._contactList)
     this.router.navigateByUrl('/contact-manage/contact-view');
   }
 }
